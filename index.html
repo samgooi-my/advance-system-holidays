@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+
+<!-- SEO Meta Tags -->
+<title>Advance System Holidays | Holiday Packages &amp; Travel Planning in Pandan Prima KL</title>
+<meta name="description" content="Advance System Holidays offers family-friendly holiday packages, Umrah packages, group tours, hotel and flight bookings, visa processing, and personalised travel planning in Pandan Prima and Pandan Indah, KL." />
+<meta property="og:title" content="Advance System Holidays | Holiday Packages &amp; Travel Planning in Pandan Prima KL" />
+<meta property="og:description" content="Advance System Holidays offers family-friendly holiday packages, Umrah packages, group tours, hotel and flight bookings, visa processing, and personalised travel planning in Pandan Prima and Pandan Indah, KL." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Advance System Holidays | Holiday Packages &amp; Travel Planning in Pandan Prima KL" />
+<meta name="twitter:description" content="Advance System Holidays offers family-friendly holiday packages, Umrah packages, group tours, hotel and flight bookings, visa processing, and personalised travel planning in Pandan Prima and Pandan Indah, KL." />
+<!-- End SEO Meta Tags -->
+
+<script data-gate>
+(function(){
+  var slug='eReNGX';var apiBase='https://paymegpt.com';var currency='USD';var presets=[2500,5000,10000,25000];var minAmt=100;var maxAmt=1000000;var thankYouMsg='Thank you for your generous donation!';
+  function fmtD(c){return new Intl.NumberFormat('en-US',{style:'currency',currency:currency}).format(c/100);}
+  window.__processDonation=function(amountCents,email,donorName,donorMessage){
+    if(!amountCents||amountCents<minAmt){alert('Minimum donation is '+fmtD(minAmt));return Promise.reject('below_min');}
+    if(amountCents>maxAmt){alert('Maximum donation is '+fmtD(maxAmt));return Promise.reject('above_max');}
+    if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
+    var successBase=window.location.href.split('?')[0];
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/donation/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:donorName||'',amountCents:amountCents,message:donorMessage||'',successUrl:successBase+'?donation=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?donation=cancelled'})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process donation');throw new Error(d.error);}
+    });
+  };
+  window.__donationConfig={currency:currency,presets:presets,minAmount:minAmt,maxAmount:maxAmt,formatAmount:fmtD};
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('donation')==='success'){
+      var overlay=document.createElement('div');overlay.id='donation-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">'+thankYouMsg+'</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">Your donation has been processed successfully.</p><button onclick="this.closest(\'#donation-success-overlay\').remove();window.history.replaceState({},\'\',window.location.pathname);" style="padding:12px 32px;font-size:16px;font-weight:600;background:#16a34a;color:white;border:none;border-radius:8px;cursor:pointer;">Continue</button></div>';
+      document.body.appendChild(overlay);
+    }
+  });
+})();
+</script>
+<script data-field-replace>
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var fields={};
+  var paramMap={
+    'first_name':'firstName','last_name':'lastName','full_name':'fullName',
+    'email':'email','phone':'phone','company':'company',
+    'city':'city','state':'state','country':'country'
+  };
+  var skipTags={'SCRIPT':1,'STYLE':1,'NOSCRIPT':1,'TEXTAREA':1,'CODE':1,'PRE':1};
+  var hasUrlFields=false;
+  for(var p in paramMap){
+    var v=params.get(p);
+    if(v){fields[paramMap[p]]=v;hasUrlFields=true;}
+  }
+  var contactId=params.get('contact_id');
+  function esc(s){
+    if(!s)return s;
+    var d=document.createElement('div');
+    d.appendChild(document.createTextNode(s));
+    return d.innerHTML;
+  }
+  function doReplace(data){
+    var r={};
+    r['{{full_name}}']=esc(((data.firstName||'')+' '+(data.lastName||'')).trim()||((data.fullName||data.name)||''));
+    r['{{first_name}}']=esc(data.firstName||(data.name?data.name.split(' ')[0]:'')||'');
+    r['{{last_name}}']=esc(data.lastName||(data.name&&data.name.indexOf(' ')>-1?data.name.substring(data.name.indexOf(' ')+1):'')||'');
+    r['{{email}}']=esc(data.email||'');
+    r['{{phone}}']=esc(data.phone||'');
+    r['{{company}}']=esc(data.company||'');
+    r['{{city}}']=esc(data.city||'');
+    r['{{state}}']=esc(data.state||'');
+    r['{{country}}']=esc(data.country||'');
+    r['{{date}}']=new Date().toLocaleDateString();
+    r['{{time}}']=new Date().toLocaleTimeString();
+    r['{{location}}']=[data.city,data.state,data.country].filter(Boolean).join(', ');
+    r['{{tracking_id}}']=esc(data.trackingId||'');
+    r['{{lastClickedProduct}}']=esc(data.lastClickedProduct||'');
+    r['{{lastProductClickDate}}']=esc(data.lastProductClickDate||'');
+    r['{{lastClickedProductPrice}}']=esc(data.lastClickedProductPrice||'');
+    r['{{lastClickedProductURL}}']=esc(data.lastClickedProductURL||'');
+    r['{{productsClickedCount}}']=esc(data.productsClickedCount||'0');
+    r['{{ip_address}}']=esc(data.ipAddress||'');
+    r['{{ip}}']=esc(data.ipAddress||'');
+    if(data.customFields){
+      for(var k in data.customFields){
+        r['{{'+k+'}}']=esc(String(data.customFields[k]||''));
+      }
+    }
+    params.forEach(function(v,k){
+      if(!paramMap[k]&&k!=='contact_id'&&k!=='page_id'&&k.indexOf('utm_')!==0){
+        r['{{'+k+'}}']=esc(v);
+      }
+    });
+    var hasValues=false;
+    for(var key in r){if(r[key]){hasValues=true;break;}}
+    if(!hasValues)return;
+    var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(n){
+        var p=n.parentNode;
+        if(p&&skipTags[p.nodeName])return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while(node=walker.nextNode()){
+      var txt=node.nodeValue;
+      if(txt&&txt.indexOf('{{')>-1){
+        var changed=txt;
+        for(var ph in r){
+          if(r[ph]&&changed.indexOf(ph)>-1){
+            changed=changed.split(ph).join(r[ph]);
+          }
+        }
+        if(changed!==txt)node.nodeValue=changed;
+      }
+    }
+    var attrs=['value','placeholder','content','alt','title'];
+    attrs.forEach(function(attr){
+      var els=document.querySelectorAll('['+attr+'*="{{"]');
+      for(var i=0;i<els.length;i++){
+        var tag=els[i].tagName;
+        if(skipTags[tag])continue;
+        var val=els[i].getAttribute(attr);
+        if(val){
+          var nv=val;
+          for(var ph in r){
+            if(r[ph]&&nv.indexOf(ph)>-1){
+              nv=nv.split(ph).join(r[ph]);
+            }
+          }
+          if(nv!==val)els[i].setAttribute(attr,nv);
+        }
+      }
+    });
+  }
+  function run(){
+    if(contactId){
+      var xhr=new XMLHttpRequest();
+      xhr.open('GET','https://paymegpt.com/api/landing/context/'+encodeURIComponent(contactId)+'?page_id=2727');
+      xhr.onload=function(){
+        if(xhr.status===200){
+          try{
+            var resp=JSON.parse(xhr.responseText);
+            if(resp.success&&resp.contact){
+              var merged=resp.contact;
+              for(var k in fields){merged[k]=fields[k];}
+              doReplace(merged);
+              return;
+            }
+          }catch(e){}
+        }
+        if(hasUrlFields)doReplace(fields);
+      };
+      xhr.onerror=function(){if(hasUrlFields)doReplace(fields);};
+      xhr.send();
+    }else if(hasUrlFields){
+      doReplace(fields);
+    }
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}
+  else{run();}
+})();
+</script>
+<script data-payment>
+(function(){
+  var slug='eReNGX';
+  var apiBase='https://paymegpt.com';
+  function findEmail(){
+    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
+    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
+    return '';
+  }
+  function findName(){
+    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
+    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
+    return '';
+  }
+  var __realProcessPayment=function(a,b,c,d,e){
+    var amountCents,email,productName,productDescription,customerName,quantity;
+    if(a&&typeof a==='object'){
+      amountCents=a.amountCents;email=a.email;productName=a.productName;
+      productDescription=a.productDescription||'';customerName=a.name||'';quantity=a.quantity||1;
+    }else{
+      amountCents=typeof a==='number'?a:0;productName=typeof b==='string'?b:'';
+      productDescription=typeof c==='string'?c:'';email='';customerName='';quantity=1;
+    }
+    if(!email)email=findEmail();
+    if(!customerName)customerName=findName();
+    if(!productName){alert('Product name is required.');return Promise.reject('no_product_name');}
+    if(!amountCents||amountCents<100){alert('Amount must be at least $1.00');return Promise.reject('invalid_amount');}
+    if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
+    var successBase=window.location.href.split('?')[0];
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/payment/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:customerName,amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process payment');throw new Error(d.error);}
+    });
+  };
+  Object.defineProperty(window,'__processPayment',{value:__realProcessPayment,writable:false,configurable:false});
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('payment')==='success'){
+      var pName=urlParams.get('product')||'your item';
+      var overlay=document.createElement('div');overlay.id='payment-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Payment Successful!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">Thank you for purchasing '+pName.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'.</p><button onclick="document.getElementById(\'payment-success-overlay\').remove();window.history.replaceState({},\'\',window.location.pathname);" style="padding:12px 32px;font-size:16px;font-weight:600;background:#16a34a;color:white;border:none;border-radius:8px;cursor:pointer;">Continue</button></div>';
+      document.body.appendChild(overlay);
+    }
+  });
+})();
+</script>  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="text-slate-800">
+  <!-- ============================================================================ -->
+  <!-- HEADER / NAVIGATION SECTION: Brand, address, and quick contact links        -->
+  <!-- Features: Sticky nav, clear branding, mobile-friendly spacing               -->
+  <!-- Mobile Padding: px-4 py-4 ensures text never touches viewport edges         -->
+  <!-- ============================================================================ -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/85 border-b border-sky-100" data-section="header">
+    <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 md:px-8 lg:px-12 flex items-center justify-between gap-4">
+      <div class="min-w-0">
+        <a href="#home" class="block">
+          <p class="text-xs font-semibold tracking-[0.2em] text-sky-600 uppercase">Advance System Holidays</p>
+          <p class="text-sm text-slate-600">No. 33 Tingkat 2, Jalan Pandan Prima 1, Dataran Pandan Prima, 55100 KL</p>
+        </a>
+      </div>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="#services" class="hover:text-sky-600">Services</a>
+        <a href="#highlights" class="hover:text-sky-600">Why Us</a>
+        <a href="#testimonials" class="hover:text-sky-600">Testimonials</a>
+        <a href="#contact" class="inline-flex items-center rounded-full bg-orange-500 px-5 py-2 text-white hover:bg-orange-600">Plan My Trip</a>
+      </nav>
+      <a href="#contact" class="md:hidden inline-flex items-center rounded-full bg-orange-500 px-4 py-2 text-sm font-semibold text-white">Plan My Trip</a>
+    </div>
+  </header>
+
+  <!-- ============================================================================ -->
+  <!-- HERO SECTION: Main landing area with headline, subtext, and primary CTA     -->
+  <!-- Features: Sky blue gradient, orange accents, family-focused messaging       -->
+  <!-- Mobile Padding: Ensures text never touches viewport edges                   -->
+  <!-- ============================================================================ -->
+  <main id="home" data-section="hero" class="hero-section">
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(251,146,60,.18),_transparent_35%),radial-gradient(circle_at_bottom_left,_rgba(14,165,233,.18),_transparent_35%)]"></div>
+      <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:px-8 lg:px-12 lg:py-16 relative">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div class="space-y-6">
+            <span class="inline-flex items-center rounded-full bg-sky-100 px-4 py-2 text-sm font-semibold text-sky-700">Pandan Prima / Pandan Indah travel specialists</span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
+              Stress-Free Holidays, Unforgettable Memories
+            </h1>
+            <p class="text-lg sm:text-xl text-slate-600 max-w-2xl">
+              Planning a family holiday, school tour, or group trip from KL? Advance System Holidays creates smooth, affordable, and personalised travel experiences for Malaysian families and groups—right from Pandan Prima.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="#contact" class="inline-flex items-center justify-center rounded-full bg-orange-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-orange-200 hover:bg-orange-600 cta-primary">Plan My Trip</a>
+              <a href="#services" class="inline-flex items-center justify-center rounded-full border border-sky-200 bg-white px-6 py-3 text-base font-semibold text-sky-700 hover:border-sky-300 hover:bg-sky-50">Explore Services</a>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
+              <div class="rounded-2xl bg-white p-4 shadow-sm border border-slate-100 lift-card">
+                <p class="text-2xl font-bold text-sky-600">10+</p>
+                <p class="text-sm text-slate-600">Years experience</p>
+              </div>
+              <div class="rounded-2xl bg-white p-4 shadow-sm border border-slate-100 lift-card">
+                <p class="text-2xl font-bold text-sky-600">MOTAC</p>
+                <p class="text-sm text-slate-600">Licensed agency</p>
+              </div>
+              <div class="rounded-2xl bg-white p-4 shadow-sm border border-slate-100 lift-card">
+                <p class="text-2xl font-bold text-sky-600">Family</p>
+                <p class="text-sm text-slate-600">Focused planning</p>
+              </div>
+              <div class="rounded-2xl bg-white p-4 shadow-sm border border-slate-100 lift-card">
+                <p class="text-2xl font-bold text-sky-600">KL</p>
+                <p class="text-sm text-slate-600">Convenient local support</p>
+              </div>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="absolute -top-6 -right-6 h-24 w-24 rounded-full bg-orange-300/40 blur-2xl floaty"></div>
+            <div class="absolute -bottom-8 -left-8 h-28 w-28 rounded-full bg-sky-300/40 blur-2xl floaty"></div>
+            <div class="relative rounded-[2rem] bg-white p-6 shadow-2xl border border-slate-100">
+              <div class="rounded-[1.5rem] bg-gradient-to-br from-sky-500 to-sky-700 p-6 text-white">
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sky-100">Your next journey starts here</p>
+                <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                  <div class="rounded-2xl bg-white/10 p-4 backdrop-blur">
+                    <p class="font-semibold">Holiday Packages</p>
+                    <p class="text-sm text-sky-50">Asia, Middle East, Europe & Australia</p>
+                  </div>
+                  <div class="rounded-2xl bg-white/10 p-4 backdrop-blur">
+                    <p class="font-semibold">Umrah Packages</p>
+                    <p class="text-sm text-sky-50">Guided, comfortable, and trusted</p>
+                  </div>
+                  <div class="rounded-2xl bg-white/10 p-4 backdrop-blur">
+                    <p class="font-semibold">School & Group Tours</p>
+                    <p class="text-sm text-sky-50">Tailored for schools, clubs, and organisations</p>
+                  </div>
+                  <div class="rounded-2xl bg-white/10 p-4 backdrop-blur">
+                    <p class="font-semibold">Booking Support</p>
+                    <p class="text-sm text-sky-50">Flights, hotels, insurance, and visas</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================================ -->
+    <!-- SERVICES SECTION: Core travel solutions with clear cards                   -->
+    <!-- Features: Holiday packages, Umrah, tours, bookings, insurance, visa       -->
+    <!-- Mobile Padding: Spacious container padding on all viewports               -->
+    <!-- ============================================================================ -->
+    <section id="services" data-section="services" class="py-14">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-orange-500">Services</p>
+          <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-slate-900">Everything your family or group needs for a smooth trip</h2>
+          <p class="mt-4 text-slate-600">From first idea to final boarding pass, our team makes travel planning simple, friendly, and reliable for Pandan Prima and Pandan Indah families.</p>
+        </div>
+        <div class="features-grid mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="lift-card rounded-3xl bg-white p-6 border border-slate-100 shadow-sm">
+            <h3 class="text-xl font-semibold text-slate-900">Holiday Packages</h3>
+            <p class="mt-2 text-slate-600">Curated trips to Asia, the Middle East, Europe, and Australia for couples, families, and larger groups.</p>
+          </article>
+          <article class="lift-card rounded-3xl bg-white p-6 border border-slate-100 shadow-sm">
+            <h3 class="text-xl font-semibold text-slate-900">Umrah Packages</h3>
+            <p class="mt-2 text-slate-600">Well-organised Umrah arrangements with thoughtful support for a peaceful pilgrimage experience.</p>
+          </article>
+          <article class="lift-card rounded-3xl bg-white p-6 border border-slate-100 shadow-sm">
+            <h3 class="text-xl font-semibold text-slate-900">School & Group Tours</h3>
+            <p class="mt-2 text-slate-600">Safe, coordinated itineraries for schools, associations, office trips, and community groups.</p>
+          </article>
+          <article class="lift-card rounded-3xl bg-white p-6 border border-slate-100 shadow-sm">
+            <h3 class="text-xl font-semibold text-slate-900">Hotel & Flight Bookings</h3>
+            <p class="mt-2 text-slate-600">Convenient booking support that helps you balance comfort, timing, and budget.</p>
+          </article>
+          <article class="lift-card rounded-3xl bg-white p-6 border border-slate-100 shadow-sm">
+            <h3 class="text-xl font-semibold text-slate-900">Travel Insurance</h3>
+            <p class="mt-2 text-slate-600">Protect your journey with practical coverage options for peace of mind before and during travel.</p>
+          </article>
+          <article class="lift-card rounded-3xl bg-white p-6 border border-slate-100 shadow-sm">
+            <h3 class="text-xl font-semibold text-slate-900">Visa Processing</h3>
+            <p class="mt-2 text-slate-600">Assistance with travel documentation so your trip preparation stays stress-free and organised.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================================ -->
+    <!-- HIGHLIGHTS SECTION: Trust signals and local relevance                      -->
+    <!-- Features: MOTAC, experience, pricing, personalised service                -->
+    <!-- Mobile Padding: Comfortable spacing around content blocks                 -->
+    <!-- ============================================================================ -->
+    <section id="highlights" data-section="highlights" class="py-14 bg-sky-50/70">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12">
+        <div class="grid lg:grid-cols-2 gap-8 items-start">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sky-600">Why families choose us</p>
+            <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-slate-900">Local, dependable, and focused on your comfort</h2>
+            <p class="mt-4 text-slate-600">We understand the needs of Malaysian families and groups. Whether you are booking a school tour, a family holiday, or a pilgrimage, our team offers attentive service with practical travel advice.</p>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="rounded-3xl bg-white p-6 border border-sky-100 shadow-sm lift-card">
+              <p class="text-lg font-semibold text-slate-900">MOTAC Licensed</p>
+              <p class="mt-2 text-slate-600">Travel with confidence knowing you are working with a licensed agency.</p>
+            </div>
+            <div class="rounded-3xl bg-white p-6 border border-sky-100 shadow-sm lift-card">
+              <p class="text-lg font-semibold text-slate-900">10+ Years Experience</p>
+              <p class="mt-2 text-slate-600">Reliable guidance shaped by years of planning trips for families and groups.</p>
+            </div>
+            <div class="rounded-3xl bg-white p-6 border border-sky-100 shadow-sm lift-card">
+              <p class="text-lg font-semibold text-slate-900">Competitive Pricing</p>
+              <p class="mt-2 text-slate-600">Smart packages designed to maximise value without compromising comfort.</p>
+            </div>
+            <div class="rounded-3xl bg-white p-6 border border-sky-100 shadow-sm lift-card">
+              <p class="text-lg font-semibold text-slate-900">Personalised Service</p>
+              <p class="mt-2 text-slate-600">Friendly support tailored to your destination, budget, dates, and group size.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================================ -->
+    <!-- TESTIMONIALS SECTION: Social proof from happy travellers                   -->
+    <!-- Features: Family-friendly experiences, trust building                     -->
+    <!-- Mobile Padding: Section uses consistent responsive spacing                -->
+    <!-- ============================================================================ -->
+    <section id="testimonials" data-section="testimonials" class="py-14">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-orange-500">Testimonials</p>
+          <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-slate-900">Loved by families and group organisers</h2>
+        </div>
+        <div class="testimonials-carousel mt-8 grid gap-5 lg:grid-cols-3">
+          <figure class="lift-card rounded-3xl bg-white p-6 border border-slate-100 shadow-sm">
+            <blockquote class="text-slate-700">“Our family trip was planned beautifully from start to finish. The team was responsive, patient, and gave us great options for our budget.”</blockquote>
+            <figcaption class="mt-4 font-semibold text-slate-900">Aina, Pandan Indah</figcaption>
+          </figure>
+          <figure class="lift-card rounded-3xl bg-white p-6 border border-slate-100 shadow-sm">
+            <blockquote class="text-slate-700">“We booked a school tour and everything was well coordinated. Parents felt reassured and the students had an amazing experience.”</blockquote>
+            <figcaption class="mt-4 font-semibold text-slate-900">Mr. Hafiz, School Coordinator</figcaption>
+          </figure>
+          <figure class="lift-card rounded-3xl bg-white p-6 border border-slate-100 shadow-sm">
+            <blockquote class="text-slate-700">“The office group trip went smoothly, and the hotel and flight suggestions were spot on. Professional service from a local KL team.”</blockquote>
+            <figcaption class="mt-4 font-semibold text-slate-900">Daniel, Corporate Travel Lead</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================================ -->
+    <!-- CONTACT SECTION: Form and business details                                 -->
+    <!-- Features: Family trip inquiry form, clear address, map-style details       -->
+    <!-- Mobile Padding: p-4 style inner spacing for safe mobile reading            -->
+    <!-- ============================================================================ -->
+    <section id="contact" data-section="contact" class="py-14 bg-gradient-to-br from-sky-600 to-sky-700 text-white">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12">
+        <div class="grid lg:grid-cols-2 gap-8 items-start">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-sky-100">Contact us</p>
+            <h2 class="mt-2 text-3xl sm:text-4xl font-bold">Tell us your destination and we’ll help plan the rest</h2>
+            <p class="mt-4 text-sky-50 max-w-2xl">Whether you're dreaming of a beach holiday, a family reunion abroad, or an Umrah journey, our Pandan Prima team is ready to assist with warm, personalised service.</p>
+            <div class="mt-6 space-y-3 text-sky-50">
+              <p><span class="font-semibold text-white">Address:</span> No. 33 Tingkat 2, Jalan Pandan Prima 1, Dataran Pandan Prima, 55100 KL</p>
+              <p><span class="font-semibold text-white">Area Served:</span> Pandan Prima, Pandan Indah, Ampang, and greater KL</p>
+              <p><span class="font-semibold text-white">Best for:</span> Families, school groups, clubs, and community travel</p>
+            </div>
+          </div>
+          <form class="contact-form rounded-3xl bg-white p-6 sm:p-8 text-slate-800 shadow-2xl" onsubmit="handleFormSubmit(event)">
+            <div class="grid gap-4">
+              <div>
+                <label for="full_name" class="block text-sm font-semibold">Name</label>
+                <input id="full_name" name="full_name" type="text" required class="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 focus:border-sky-400 focus:ring-0" placeholder="Your full name" />
+              </div>
+              <div>
+                <label for="phone" class="block text-sm font-semibold">Phone</label>
+                <input id="phone" name="phone" type="tel" required class="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 focus:border-sky-400 focus:ring-0" placeholder="01X-XXX XXXX" />
+              </div>
+              <div>
+                <label for="destination" class="block text-sm font-semibold">Destination</label>
+                <input id="destination" name="destination" type="text" required class="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 focus:border-sky-400 focus:ring-0" placeholder="e.g. Osaka, Dubai, London" />
+              </div>
+              <div>
+                <label for="travel_dates" class="block text-sm font-semibold">Travel Dates</label>
+                <input id="travel_dates" name="travel_dates" type="text" required class="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 focus:border-sky-400 focus:ring-0" placeholder="Preferred dates or month" />
+              </div>
+              <div>
+                <label for="travellers" class="block text-sm font-semibold">Number of Travellers</label>
+                <input id="travellers" name="travellers" type="number" min="1" required class="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 focus:border-sky-400 focus:ring-0" placeholder="e.g. 4" />
+              </div>
+              <button type="submit" class="rounded-full bg-orange-500 px-6 py-3 font-semibold text-white hover:bg-orange-600">Plan My Trip</button>
+              <p class="text-sm text-slate-500">We’ll use your details to prepare a friendly travel recommendation and get back to you quickly.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================================ -->
+  <!-- FOOTER SECTION: Closing brand info and helpful links                       -->
+  <!-- Features: Address, services, and family-friendly closing message           -->
+  <!-- Mobile Padding: Safe spacing and readable typography                       -->
+  <!-- ============================================================================ -->
+  <footer class="bg-slate-950 text-slate-300" data-section="footer">
+    <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:px-8 lg:px-12">
+      <div class="grid gap-8 md:grid-cols-3">
+        <div>
+          <p class="text-white font-bold text-lg">Advance System Holidays</p>
+          <p class="mt-3 text-sm leading-6">Your trusted travel partner for holiday packages, Umrah, group tours, and travel planning in Pandan Prima and Pandan Indah.</p>
+        </div>
+        <div>
+          <p class="text-white font-semibold">Popular Services</p>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li>Holiday Packages</li>
+            <li>Umrah Packages</li>
+            <li>School & Group Tours</li>
+            <li>Hotel & Flight Bookings</li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-white font-semibold">Visit Us</p>
+          <p class="mt-3 text-sm leading-6">No. 33 Tingkat 2, Jalan Pandan Prima 1, Dataran Pandan Prima, 55100 KL</p>
+          <p class="mt-3 text-sm text-sky-300">MOTAC Licensed • Family-focused • Based in KL</p>
+        </div>
+      </div>
+      <div class="mt-8 border-t border-white/10 pt-6 text-sm text-slate-400">
+        <p>© 2026 Advance System Holidays. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  
+  <script src="script.js"></script>
+</body>
+</html>
